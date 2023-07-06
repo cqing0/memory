@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Card.css';
 
 function Card(props) {
 	const [state, setState] = useState({
 		counter: 0,
+		color: props.background || 'grey'
 	});
 	
 	function handleChange(e) {
@@ -16,8 +17,11 @@ function Card(props) {
 	}
 
 	return (
-		<div className="card" onClick={props.onClick}>
-			Count: {state.counter}
+		<div named={props.name} 
+			style={{backgroundColor: state.color}} 
+			className="card" 
+			onClick={() => props.handleLogic(props.name)}
+			>
 		</div>
 	)
 }
