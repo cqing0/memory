@@ -17,11 +17,12 @@ function Card(props) {
 	}
 
 	return (
-		<div named={props.name} 
+		<div name={props.name} 
 			style={{backgroundColor: state.color}} 
 			className="card" 
 			onClick={() => props.handleLogic(props.name)}
-			>
+		>
+			{props.textContent}
 		</div>
 	)
 }

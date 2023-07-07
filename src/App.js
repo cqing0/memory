@@ -1,7 +1,8 @@
 import Card from './Card';
 import Head from './Head';
 import './App.css';
-import React, { useState } from 'react';
+import data from './data';
+import React, { useState, useEffect } from 'react';
 
 function App() {
 
@@ -18,10 +19,16 @@ function App() {
 				...prev,
 				score: 0
 			}
-		})
+		});
+		setSaved([])
 	}
 
-	const mockValues = ['red', 'orange', 'yellow', 'green']
+	const mockValues = [
+		data.cards[0].color,
+		data.cards[1].color,
+		data.cards[2].color,
+		data.cards[3].color,
+	]
 
 	const handleLogic = (cardName) => {
 		if (saved.includes(cardName)) {
@@ -50,10 +57,8 @@ function App() {
 			score={state.score} />
 			<div className="game-container">
 				<div className="card-container">
-					<Card name={mockValues[0]} handleLogic={handleLogic} />
-					<Card name='Ok' handleLogic={handleLogic} />
-					<Card name='Awesome' handleLogic={handleLogic} />
-					<Card name='Epic' handleLogic={handleLogic} />
+					{mockValues.map(color =>(<Card name={color} background={color}
+					handleLogic={handleLogic} textContent={color} />))}
 				</div>
 			</div>
 		</div>
