@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC&display=swap');
+
+.score-section p {
+	color: white;
+	font-family: 'Ysabeau SC', sans-serif;
+	font-size: 2.5em;
+	margin: 0 0.3em;
+	transition: width 2s;
+}
+
+.score-section {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 7em;
+	padding-top: 2em;
+}
+
+.score-section div {
+	margin: 0;
+	display: flex;
+}

@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC&display=swap');
+
 .card {
 	border-radius: 0.3em;
+	border: 2px solid rgba(0, 0, 0, 0%);
+	font-family: 'Ysabeau SC', sans-serif;
+	font-size: 1.5em;
+	color: rgba(0, 0, 0, 50%);
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	padding-bottom: 2em;
+	user-select: none;
+}
+
+.card:hover {
+	color: rgba(0, 0, 0, 78%); 
+	border: 2px solid rgba(255, 255, 255, 50%);
 }

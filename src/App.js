@@ -8,7 +8,7 @@ function App() {
 
 	const [state, setState] = useState({
 		score: 0,
-		saved: []
+		highScore: 0,
 	})
 
 	const [saved, setSaved] = useState([])
@@ -31,13 +31,14 @@ function App() {
 	]
 
 	const handleLogic = (cardName) => {
+		console.log(typeof saved);
 		if (saved.includes(cardName)) {
 			resetScore();
 		} else {
 			handleScore();
+			setSaved((prev) => prev.concat(cardName))
 		}
-		setSaved(prev => prev.concat(cardName))
-		console.log(saved)
+		console.log(saved);
 	}
 
 	function handleScore() {
@@ -45,16 +46,20 @@ function App() {
 			return {
 				...prev,
 				score: state.score + 1,
+				highScore: state.highScore < state.score ?
+				state.score + 1 : 
+				state.score
 			}
 		})
-		console.log(state.saved)
 	}
 
 	return (
 		<div>
 			<Head
 			title="score"
-			score={state.score} />
+			score={state.score}
+			highScore={state.highScore}
+			/>
 			<div className="game-container">
 				<div className="card-container">
 					{mockValues.map(color =>(<Card name={color} background={color}
