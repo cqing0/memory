@@ -31,14 +31,13 @@ function App() {
 	]
 
 	const handleLogic = (cardName) => {
-		console.log(typeof saved);
 		if (saved.includes(cardName)) {
 			resetScore();
 		} else {
 			handleScore();
+			checkHighScore();
 			setSaved((prev) => prev.concat(cardName))
 		}
-		console.log(saved);
 	}
 
 	function handleScore() {
@@ -46,11 +45,19 @@ function App() {
 			return {
 				...prev,
 				score: state.score + 1,
-				highScore: state.highScore < state.score ?
-				state.score + 1 : 
-				state.score
 			}
 		})
+	}
+
+	function checkHighScore() {
+		if (state.score >= state.highScore) {
+			setState(prev => {
+				return {
+					...prev,
+					highScore: state.score + 1,
+				}
+			})
+		}
 	}
 
 	return (
