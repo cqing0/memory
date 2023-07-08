@@ -20,6 +20,10 @@ let data = {
 			id: 4,
 			color: 'ivory',
 		},
+		{
+			id: 5, 
+			color: 'peach',
+		},
 	]
 }
 

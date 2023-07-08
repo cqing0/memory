@@ -9,6 +9,12 @@ function App() {
 	const [state, setState] = useState({
 		score: 0,
 		highScore: 0,
+		colors: [
+			data.cards[Math.floor(Math.random() * 5)].color,
+			data.cards[Math.floor(Math.random() * 5)].color,
+			data.cards[Math.floor(Math.random() * 5)].color,
+			data.cards[Math.floor(Math.random() * 5)].color,
+		],
 	})
 
 	const [saved, setSaved] = useState([])
@@ -23,12 +29,22 @@ function App() {
 		setSaved([])
 	}
 
-	const mockValues = [
-		data.cards[0].color,
-		data.cards[1].color,
-		data.cards[2].color,
-		data.cards[3].color,
-	]
+	useEffect(() => {
+		const changeColor = () => {
+			setState(prev => {
+				return {
+					...prev,
+					color: 'purple',
+				}
+			})
+		} 
+
+		document.addEventListener('click', changeColor);
+
+		return () => {
+			document.removeEventListener('click', changeColor);
+		};
+	}, [state.colors]);
 
 	const handleLogic = (cardName) => {
 		if (saved.includes(cardName)) {
@@ -69,7 +85,7 @@ function App() {
 			/>
 			<div className="game-container">
 				<div className="card-container">
-					{mockValues.map(color =>(<Card name={color} background={color}
+					{state.colors.map(color =>(<Card name={color} background={color}
 					handleLogic={handleLogic} textContent={color} />))}
 				</div>
 			</div>
