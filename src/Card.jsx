@@ -18,7 +18,7 @@ function Card(props) {
 
 	return (
 		<div name={props.name} 
-			style={{backgroundColor: state.color}} 
+			style={{backgroundColor: props.background}} 
 			className="card" 
 			onClick={() => props.handleLogic(props.name)}
 		>

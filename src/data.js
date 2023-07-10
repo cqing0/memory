@@ -22,7 +22,24 @@ let data = {
 		},
 		{
 			id: 5, 
-			color: 'peach',
+			color: 'red',
+		},
+		{
+			id: 6,
+			color: 'yellow'
+		},
+		{
+			id: 7,
+			color: 'green',
+		},
+		{
+			id: 8,
+			name: 'blue',
+			color: '#1c51ed',
+		},
+		{
+			id: 9,
+			color: 'purple',
 		},
 	]
 }
